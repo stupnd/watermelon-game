@@ -1,0 +1,56 @@
+Build a complete, playable browser “Watermelon / Suika” game using this stack:
+
+- Vite (vanilla)
+- HTML + CSS + JavaScript (no frameworks)
+- Matter.js for physics
+
+Requirements (must-haves):
+1) Project setup
+- Assume I will run:
+  mkdir watermelon-game && cd watermelon-game
+  npm create vite@latest . -- --template vanilla
+  npm install
+- Tell me exactly what additional npm packages to install (Matter.js, etc.)
+
+2) Files
+Create and provide the full code for:
+- index.html
+- style.css
+- main.js
+
+3) UI
+- A clean centered game container
+- Canvas for gameplay
+- Top bar showing Score
+- Buttons: Restart, Pause/Resume
+- A “danger line” drawn near the top of the bin
+
+4) Gameplay
+- Bin boundaries (floor + left/right walls) using static bodies
+- A “current fruit preview” at the top that follows mouse X (clamped inside walls)
+- Click OR Space drops the fruit
+- Fruits are circles with levels 0..N with increasing radius and different labels/colors
+- Random next fruit among the smallest few levels (like Suika style)
+
+5) Merging rules
+- When two fruits of the same level collide, merge:
+  - Remove both bodies
+  - Spawn one fruit of next level at collision position
+  - Increase score (score based on new fruit level)
+- Prevent double-merge bugs (e.g., mark bodies as “merging” and debounce)
+
+6) Game over
+- If any fruit’s top crosses the danger line continuously for ~1 second -> Game Over overlay
+- Stop physics on Game Over
+- Restart resets everything
+
+7) Quality constraints
+- Code must run without errors immediately after I paste the files and run `npm run dev`
+- Keep code well-structured (small helper functions), but still all inside main.js
+- No external assets required (use simple render: circles + text labels)
+- Include comments only where needed (not a tutorial), but make the code readable
+
+Output format:
+- First: commands to install dependencies (npm)
+- Then: provide code for index.html, style.css, main.js in separate code blocks
+- Finally: a short “How to run” section (npm run dev) and controls list (mouse/space/buttons).
